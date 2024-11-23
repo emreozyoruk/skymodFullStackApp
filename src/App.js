@@ -21,11 +21,11 @@ function App() {
       const certificateNumber = `CERT-${Date.now()}`; // Sertifika numarasını otomatik oluştur
       const requestData = { ...formData, certificate_number: certificateNumber };
 
-      const response = await axios.post("http://127.0.0.1:8001/certificates/", requestData, {
+      const response = await axios.post("https://taskbackend-xi.vercel.app/certificates/", requestData, {
         headers: { "Content-Type": "application/json" },
       });
 
-      setCertificateUrl(`http://127.0.0.1:8001/certificates/${certificateNumber}/pdf`);
+      setCertificateUrl(`https://taskbackend-xi.vercel.app/certificates/${certificateNumber}/pdf`);
       console.log("Certificate created:", response.data);
     } catch (error) {
       console.error("Error creating certificate:", error.response?.data || error.message);
